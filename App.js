@@ -6,27 +6,20 @@ const buttons = document.querySelectorAll(".buttons")
 
 //disbale dot
 const dot = document.querySelector(".btn-dot").disable = true
-test2 = []
+let test2 = []
 for(let i = 0; i < buttons.length;i++){
-    //disbale dot
-    const dot = document.querySelector(".btn-dot").disable = true
+
     buttons[i].addEventListener("click", 
     function(e){ 
-        //disbale dot
-        const dot = document.querySelector(".btn-dot").disable = true
-        test =  e.target.value
         
-        test2.push(test)
-       
+        values =  e.target.value
+        
+        calulator(values)
        
     
     })
 } 
 //DisplayBottom.textContent = 
-test2.array.forEach(element => {
-    
-    console.log(element)
-});
  
 
 /*buttons.addEventListener("click", 
@@ -37,9 +30,23 @@ function(){
 
 
 function calulator(values){
+    
+    if values ===
 
 }
 
-function add(value1,value2){
-    return value1 + value2
+function add(value,value2){
+    return value + value2
+}
+
+function divide(value,value2){
+    return value / value2
+}
+
+function subtract(value,value2){
+    return value - value2
+}
+
+function multiply(value,value2){
+    return value * value2
 }
