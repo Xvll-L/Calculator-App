@@ -15,7 +15,7 @@ for(let i = 0; i < buttons.length;i++){
         values =  e.target.value
         
         calulator(values)
-       
+       console.log(values)
     
     })
 } 
@@ -33,6 +33,7 @@ function(){
 // store the trimmed data as value 2
 //???
 //Concatenating numbers
+let oldValue =  " "
 let numberValues = " "
 function calulator(values){
     let cal = {
@@ -49,20 +50,25 @@ function calulator(values){
 
     
 
-    numberValues = values + numberValues + " "  
-    console.log(cal) 
+    numberValues = numberValues + values + " "  
+    ///console.log(cal) 
     DisplayBottom.textContent = numberValues
     //DisplayBottom.textContent = DisplayBottom.textContent + values + "";
     if (values === "clear"){
         DisplayTop.textContent = " "
         DisplayBottom.textContent = " "
+        numberValues= " "
     }
 
-    if(values === add ){
-
-      let  addvalues = numberValues.steslice(start, end)
-      console.log(addvalues)
-
+    if(values === "+" ){
+        
+        let  addvalues = numberValues.slice(0, numberValues.length)
+        DisplayBottom.textContent = " "
+        numberValues = " "
+        ///console.log(addvalues)
+        ///console.log(oldValue)
+        oldValue =  addvalues
+        
     }
 
 }
