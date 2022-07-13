@@ -28,10 +28,42 @@ function(){
 })*/
 
 
-
+// get user inputs 
+// trim user input after they press add, divide subtract or multiply
+// store the trimmed data as value 2
+//???
+//Concatenating numbers
+let numberValues = " "
 function calulator(values){
+    let cal = {
+        
+    }
+
+    // disable button when it overflow
+   /* if (DisplayBottom.textContent.length === 10)
+    {
+        for(let i = 0; i < buttons.length;i++){
+            buttons[i].setAttribute('disabled', true)
+        }
+    }*/
+
     
-    if values ===
+
+    numberValues = values + numberValues + " "  
+    console.log(cal) 
+    DisplayBottom.textContent = numberValues
+    //DisplayBottom.textContent = DisplayBottom.textContent + values + "";
+    if (values === "clear"){
+        DisplayTop.textContent = " "
+        DisplayBottom.textContent = " "
+    }
+
+    if(values === add ){
+
+      let  addvalues = numberValues.steslice(start, end)
+      console.log(addvalues)
+
+    }
 
 }
 
