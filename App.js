@@ -15,7 +15,7 @@ for(let i = 0; i < buttons.length;i++){
         values =  e.target.value
         
         calulator(values)
-       console.log(values)
+       ///console.log(values)
     
     })
 } 
@@ -36,6 +36,7 @@ function(){
 let oldValue =  " "
 let numberValues = " "
 function calulator(values){
+    console.log(typeof values)
     let cal = {
         
     }
@@ -60,7 +61,7 @@ function calulator(values){
         numberValues= " "
     }
 
-    if(values === "+" ){
+   /* if(values === "+" ){
         
         let  addvalues = numberValues.slice(0, numberValues.length)
         DisplayBottom.textContent = " "
@@ -69,7 +70,7 @@ function calulator(values){
         ///console.log(oldValue)
         oldValue =  addvalues
         
-    }
+    }*/
 
 }
 
