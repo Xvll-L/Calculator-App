@@ -33,10 +33,10 @@ function(){
 // store the trimmed data as value 2
 //???
 //Concatenating numbers
-let oldValue =  " "
+let secondValue =  " "
 let numberValues = " "
 function calulator(values){
-    console.log(typeof values)
+    console.log( secondValue)
     let cal = {
         
     }
@@ -51,31 +51,39 @@ function calulator(values){
 
     
 
-    numberValues = numberValues + values + " "  
+    numberValues = numberValues + values + ""  
+    secondValue = DisplayTop.textContent
+    
     ///console.log(cal) 
+    
     DisplayBottom.textContent = numberValues
     //DisplayBottom.textContent = DisplayBottom.textContent + values + "";
     if (values === "clear"){
         DisplayTop.textContent = " "
-        DisplayBottom.textContent = " "
+        DisplayBottom.textContent = "0"
         numberValues= " "
     }
 
    if(values === "+" ){
         
-        let  addvalues = numberValues.slice(0, numberValues.length)
-        DisplayBottom.textContent = " "
-        numberValues = " "
-        ///console.log(addvalues)
-        ///console.log(oldValue)
-        oldValue =  addvalues
+        let  addvalues = numberValues.slice(1, numberValues.length)
+        let toint = parseInt(addvalues)
         
+        DisplayBottom.textContent = "0"
+        numberValues = " "
+        //console.log(addvalues)
+        DisplayTop.textContent = toint
+       
     }
 
 }
 
-function add(value,value2){
-    return value + value2
+function add(value){
+  
+        test = parseInt(secondValue)
+       return value + test 
+   
+    
 }
 
 function divide(value,value2){
