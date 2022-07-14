@@ -12,7 +12,7 @@ for(let i = 0; i < buttons.length;i++){
     buttons[i].addEventListener("click", 
     function(e){ 
         
-        values =  e.target.value
+        values =  e.currentTarget.value
         
         calulator(values)
        ///console.log(values)
@@ -61,7 +61,7 @@ function calulator(values){
         numberValues= " "
     }
 
-   /* if(values === "+" ){
+   if(values === "+" ){
         
         let  addvalues = numberValues.slice(0, numberValues.length)
         DisplayBottom.textContent = " "
@@ -70,7 +70,7 @@ function calulator(values){
         ///console.log(oldValue)
         oldValue =  addvalues
         
-    }*/
+    }
 
 }
 
