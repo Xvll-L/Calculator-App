@@ -4,6 +4,8 @@ const DisplayBottom = document.querySelector(".bottomValue-display")
 
 const buttons = document.querySelectorAll(".buttons")
 
+
+
 //disbale dot
 const dot = document.querySelector(".btn-dot").disable = true
 let test2 = []
@@ -12,13 +14,16 @@ for(let i = 0; i < buttons.length;i++){
     buttons[i].addEventListener("click", 
     function(e){ 
         
-        values =  e.currentTarget.value
+       let  values =  e.currentTarget.value
         
         calulator(values)
-       ///console.log(values)
-    
+       //console.log(values)
+        
     })
+
 } 
+
+
 //DisplayBottom.textContent = 
  
 
@@ -26,27 +31,6 @@ for(let i = 0; i < buttons.length;i++){
 function(){
 
 })*/
-
-function add(value){
-  
-    test = parseInt(secondValue)
-    console.log(secondValue)
-       return value + secondValue 
-   
-    
-}
-
-function divide(value,value2){
-    return value / value2
-}
-
-function subtract(value,value2){
-    return value - value2
-}
-
-function multiply(value,value2){
-    return value * value2
-}
 
 
 // get user inputs 
@@ -57,11 +41,13 @@ function multiply(value,value2){
 let secondValue
 let numberValues = " "
 function calulator(values){
+
     //console.log( secondValue)
     let cal = {
-        
+        value1:1,
+        value2:1
     }
-
+   
     // disable button when it overflow
    /* if (DisplayBottom.textContent.length === 10)
     {
@@ -70,12 +56,19 @@ function calulator(values){
         }
     }*/
 
-    
+    let  firstValues = numberValues.slice(1, numberValues.length)
+    let toint = parseInt(firstValues)
+    cal.value1 = toint
     
     numberValues = numberValues + values + ""  
     secondValue = (DisplayTop.textContent)
-    cal.value2 = secondValue
+    test2 = parseInt(secondValue)
+    cal.value2 = test2
     console.log(cal) 
+
+    
+
+    
     
     DisplayBottom.textContent = numberValues
     //DisplayBottom.textContent = DisplayBottom.textContent + values + "";
@@ -83,21 +76,38 @@ function calulator(values){
         DisplayTop.textContent = " "
         DisplayBottom.textContent = "0"
         numberValues= " "
+        cal.value2 = " "
     }
 
    if(values === "+" ){
-        
-        let  addvalues = numberValues.slice(1, numberValues.length)
-        let toint = parseInt(addvalues)
-        add(toint)
-        cal.value1 = toint
-        
-        cal.value2
-        //console.log(addvalues)
-        DisplayTop.textContent = toint
+    DisplayTop.textContent = `${toint} + `
+    DisplayBottom.textContent = "0"
+    numberValues = " "  
+       
+            console.log(add(cal.value1,cal.value2))
+            if(add(cal.value1,cal.value2) > 1){
+                DisplayTop.textContent = `${add(cal.value1,cal.value2)} + `
+            }
+    
+    } else if (values === "-" ) {
+        DisplayTop.textContent = `${toint} - `
         DisplayBottom.textContent = "0"
-        numberValues = " "
+        numberValues = " "  
+    } else if (values === "*"){
+        DisplayTop.textContent = `${toint} * `
+        DisplayBottom.textContent = "0"
+        numberValues = " "  
+    } else if(values === "/"){
+        DisplayTop.textContent = `${toint} / `
+        DisplayBottom.textContent = "0"
+        numberValues = " "  
     }
-
+       
+   
 }
+
+function add(value1,value2){
+    return value1+value2
+}
+
 
