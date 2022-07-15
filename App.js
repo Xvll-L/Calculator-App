@@ -49,13 +49,14 @@ function calulator(values){
         value2:1
     }
    
-    // disable button when it overflow
-   /* if (DisplayBottom.textContent.length === 10)
+    //disable button when it overflow
+   if (DisplayBottom.textContent.length === 10)
     {
         for(let i = 0; i < buttons.length;i++){
             buttons[i].setAttribute('disabled', true)
         }
-    }*/
+        DisplayTop.textContent = "Buttons disabled"
+    }
 
     let  firstValues = numberValues.slice(1, numberValues.length)
     let toint = parseInt(firstValues)
