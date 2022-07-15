@@ -17,7 +17,7 @@ for(let i = 0; i < buttons.length;i++){
        let  values =  e.currentTarget.value
         
         calulator(values)
-       //console.log(values)
+       
         
     })
 
@@ -42,7 +42,8 @@ let secondValue
 let numberValues = " "
 function calulator(values){
 
-    //console.log( secondValue)
+    
+    //object to store first and second inputs
     let cal = {
         value1:1,
         value2:1
@@ -58,6 +59,7 @@ function calulator(values){
 
     let  firstValues = numberValues.slice(1, numberValues.length)
     let toint = parseInt(firstValues)
+    console.log(toint)
     cal.value1 = toint
     
     
@@ -94,7 +96,7 @@ function calulator(values){
         DisplayTop.textContent = `${toint} - `
         DisplayBottom.textContent = "0"
         numberValues = " "  
-        console.log(subtract(cal.value1,cal.value2))
+        
         if(subtract(cal.value1,cal.value2) >= 0 || subtract(cal.value1,cal.value2) <= 0){
             DisplayTop.textContent = `${subtract(cal.value1,cal.value2)} - `
         }
