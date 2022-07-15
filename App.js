@@ -82,8 +82,9 @@ function calulator(values){
         numberValues= " "
         cal.value2 = " "
     }
+    
 
-   if(values === "+" ){
+   if(values === "+"  ){
     DisplayTop.textContent = `${toint} + `
     DisplayBottom.textContent = "0"
     numberValues = " "  
