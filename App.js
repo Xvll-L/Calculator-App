@@ -60,6 +60,7 @@ function calulator(values){
     let toint = parseInt(firstValues)
     cal.value1 = toint
     
+    
     numberValues = numberValues + values + ""  
     secondValue = (DisplayTop.textContent)
     test2 = parseInt(secondValue)
@@ -84,8 +85,8 @@ function calulator(values){
     DisplayBottom.textContent = "0"
     numberValues = " "  
        
-            console.log(add(cal.value1,cal.value2))
-            if(add(cal.value1,cal.value2) > 1){
+           
+            if(add(cal.value1,cal.value2) >=0 || add(cal.value1,cal.value2) <= 0){
                 DisplayTop.textContent = `${add(cal.value1,cal.value2)} + `
             }
     
@@ -93,14 +94,24 @@ function calulator(values){
         DisplayTop.textContent = `${toint} - `
         DisplayBottom.textContent = "0"
         numberValues = " "  
+        console.log(subtract(cal.value1,cal.value2))
+        if(subtract(cal.value1,cal.value2) >= 0 || subtract(cal.value1,cal.value2) <= 0){
+            DisplayTop.textContent = `${subtract(cal.value1,cal.value2)} - `
+        }
     } else if (values === "*"){
         DisplayTop.textContent = `${toint} * `
         DisplayBottom.textContent = "0"
         numberValues = " "  
+        if(multiply(cal.value1,cal.value2) >= 0 || multiply(cal.value1,cal.value2) <= 0){
+            DisplayTop.textContent = `${multiply(cal.value1,cal.value2)} * `
+        }
     } else if(values === "/"){
         DisplayTop.textContent = `${toint} / `
         DisplayBottom.textContent = "0"
         numberValues = " "  
+        if(divide(cal.value1,cal.value2) >= 0 || multdivideply(cal.value1,cal.value2) <= 0){
+            DisplayTop.textContent = `${divide(cal.value1,cal.value2)} / `
+        }
     }
        
    
@@ -110,4 +121,14 @@ function add(value1,value2){
     return value1+value2
 }
 
+function subtract(value1,value2){
+    return value2-value1
+}
 
+function multiply(value1,value2){
+    return value2 * value1
+}
+
+function divide(value1,value2){
+    return value2 / value1
+}
