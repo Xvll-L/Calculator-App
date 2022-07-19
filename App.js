@@ -6,9 +6,7 @@ const buttons = document.querySelectorAll(".buttons")
 
 
 
-//disbale dot
-const dot = document.querySelector(".btn-dot").disable = true
-let test2 = []
+// This will loop all the buttions but not the operate
 for(let i = 0; i < buttons.length;i++){
 
     buttons[i].addEventListener("click", 
@@ -23,6 +21,14 @@ for(let i = 0; i < buttons.length;i++){
 
 } 
 
+const operates = document.querySelectorAll(".buttons-ops ")
+
+operates.forEach(btns => {
+   btns.addEventListener("click",function(e){
+    opes = e.currentTarget.value
+    console.log(opes)
+   })
+});
 
 //DisplayBottom.textContent = 
  
@@ -120,7 +126,9 @@ function calulator(values){
        
    
 }
-
+function operate(){
+    
+}
 function add(value1,value2){
     return value1+value2
 }
