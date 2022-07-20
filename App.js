@@ -11,9 +11,7 @@ for(let i = 0; i < buttons.length;i++){
 
     buttons[i].addEventListener("click", 
     function(e){ 
-    console.log(buttons)
        let  values =  e.currentTarget.value
-        
         calulator(values)
        
         
@@ -45,13 +43,9 @@ function(){
 //???
 //Concatenating numbers
 let secondValue
-let numberValues = " "
+let numberValues;
 function calulator(values){
-    if (values === NaN){
-        values = 0
-    }
-    console.log(numberValues)
-    numberValues = numberValues + values + ""  
+
     //object to store first and second inputs
     let cal = {
         value1: 1,
@@ -67,23 +61,29 @@ function calulator(values){
         DisplayTop.textContent = "Buttons disabled"
     }
 
-    let  firstValues = numberValues.slice(1, numberValues.length)
-    let toint = parseInt(firstValues)
-    console.log(toint)
-    cal.value1 = toint
+    
+    let toint = parseInt(values)
+    if(Number.isInteger(toint)){
+        
+        DisplayBottom.textContent += toint + ""
+        cal.value1[toint] 
+       
+    }
     
     
-    numberValues = numberValues + values + ""  
+    
+    
+ 
     secondValue = DisplayTop.textContent
     test2 = parseInt(secondValue)
     cal.value2[test2]
-    console.log(cal) 
+  
 
     
 
     
     
-    DisplayBottom.textContent = numberValues
+    
     //DisplayBottom.textContent = DisplayBottom.textContent + values + "";
     if (values === "clear"){
         DisplayTop.textContent = " "
@@ -95,7 +95,7 @@ function calulator(values){
     
 
    
-    DisplayBottom.textContent = "0"
+    
     numberValues = " "  
        
         
