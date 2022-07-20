@@ -11,7 +11,7 @@ for(let i = 0; i < buttons.length;i++){
 
     buttons[i].addEventListener("click", 
     function(e){ 
-        
+    console.log(buttons)
        let  values =  e.currentTarget.value
         
         calulator(values)
@@ -21,12 +21,12 @@ for(let i = 0; i < buttons.length;i++){
 
 } 
 
-const operates = document.querySelectorAll(".buttons-ops ")
+const operates = document.querySelectorAll(".operates-btns")
 
 operates.forEach(btns => {
    btns.addEventListener("click",function(e){
     opes = e.currentTarget.value
-    console.log(opes)
+    calulator(undefined, opes)
    })
 });
 
@@ -47,12 +47,15 @@ function(){
 let secondValue
 let numberValues = " "
 function calulator(values){
-
-    
+    if (values === NaN){
+        values = 0
+    }
+    console.log(numberValues)
+    numberValues = numberValues + values + ""  
     //object to store first and second inputs
     let cal = {
-        value1:1,
-        value2:1
+        value1: 1,
+        value2: 1
     }
    
     //disable button when it overflow
@@ -71,9 +74,9 @@ function calulator(values){
     
     
     numberValues = numberValues + values + ""  
-    secondValue = (DisplayTop.textContent)
+    secondValue = DisplayTop.textContent
     test2 = parseInt(secondValue)
-    cal.value2 = test2
+    cal.value2[test2]
     console.log(cal) 
 
     
@@ -86,47 +89,20 @@ function calulator(values){
         DisplayTop.textContent = " "
         DisplayBottom.textContent = "0"
         numberValues= " "
-        cal.value2 = " "
+        cal.value1[0]
+        cal.value2[0]
     }
     
 
-   if(values === "+"  ){
-    DisplayTop.textContent = `${toint} + `
+   
     DisplayBottom.textContent = "0"
     numberValues = " "  
        
-           
-            if(add(cal.value1,cal.value2) >=0 || add(cal.value1,cal.value2) <= 0){
-                DisplayTop.textContent = `${add(cal.value1,cal.value2)} + `
-            }
-    
-    } else if (values === "-" ) {
-        DisplayTop.textContent = `${toint} - `
-        DisplayBottom.textContent = "0"
-        numberValues = " "  
         
-        if(subtract(cal.value1,cal.value2) >= 0 || subtract(cal.value1,cal.value2) <= 0){
-            DisplayTop.textContent = `${subtract(cal.value1,cal.value2)} - `
-        }
-    } else if (values === "*"){
-        DisplayTop.textContent = `${toint} * `
-        DisplayBottom.textContent = "0"
-        numberValues = " "  
-        if(multiply(cal.value1,cal.value2) >= 0 || multiply(cal.value1,cal.value2) <= 0){
-            DisplayTop.textContent = `${multiply(cal.value1,cal.value2)} * `
-        }
-    } else if(values === "/"){
-        DisplayTop.textContent = `${toint} / `
-        DisplayBottom.textContent = "0"
-        numberValues = " "  
-        if(divide(cal.value1,cal.value2) >= 0 || multdivideply(cal.value1,cal.value2) <= 0){
-            DisplayTop.textContent = `${divide(cal.value1,cal.value2)} / `
-        }
-    }
-       
    
 }
-function operate(){
+function operate(value1, value2, operates){
+    
     
 }
 function add(value1,value2){
