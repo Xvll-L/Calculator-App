@@ -170,3 +170,9 @@ button:hover{
 .btn-add, .btn-divide, .btn-multiply , .btn-subtract{
     border-left: 1px solid white;
 }
+
+@media (max-width: 700px) {
+    .Calculator{
+        height: 80%;
+        width: 90%;}
+}
