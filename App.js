@@ -24,18 +24,10 @@ const operates = document.querySelectorAll(".operates-btns")
 operates.forEach(btns => {
    btns.addEventListener("click",function(e){
     opes = e.currentTarget.value
+    clear(opes)
     calulator(undefined, opes)
    })
 });
-
-//DisplayBottom.textContent = 
- 
-
-/*buttons.addEventListener("click", 
-function(){
-
-})*/
-
 
 // get user inputs 
 // trim user input after they press add, divide subtract or multiply
@@ -43,7 +35,7 @@ function(){
 //???
 //Concatenating numbers
 let secondValue
-let numberValues;
+let numberValues = " ";
 function calulator(values){
 
     //object to store first and second inputs
@@ -53,24 +45,28 @@ function calulator(values){
     }
    
     //disable button when it overflow
-   if (DisplayBottom.textContent.length === 10)
+  /* if (DisplayBottom.textContent.length === 10)
     {
         for(let i = 0; i < buttons.length;i++){
             buttons[i].setAttribute('disabled', true)
         }
         DisplayTop.textContent = "Buttons disabled"
-    }
+    }*/
 
     
     let toint = parseInt(values)
     if(Number.isInteger(toint)){
+    
+        cal.value1 = parseInt(DisplayBottom.textContent += toint + "")
         
-        DisplayBottom.textContent += toint + ""
-        cal.value1[toint] 
+        
+        
+    //cal.value1[numberValues] 
        
+        
     }
     
-    
+     console.log(cal)
     
     
  
@@ -87,11 +83,12 @@ function calulator(values){
     //DisplayBottom.textContent = DisplayBottom.textContent + values + "";
     if (values === "clear"){
         DisplayTop.textContent = " "
-        DisplayBottom.textContent = "0"
-        numberValues= " "
+        DisplayBottom.textContent = ""
+        
         cal.value1[0]
         cal.value2[0]
     }
+    
     
 
    
@@ -103,6 +100,9 @@ function calulator(values){
 }
 function operate(value1, value2, operates){
     
+    if (value1 =! null){
+        
+    }
     
 }
 function add(value1,value2){
@@ -119,4 +119,13 @@ function multiply(value1,value2){
 
 function divide(value1,value2){
     return value2 / value1
+}
+
+function clear(values){
+    
+    if(values === "clear" ){
+        DisplayTop.textContent = " "
+        DisplayBottom.textContent = ""
+    } 
+    return 0
 }
