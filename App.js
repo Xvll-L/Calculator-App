@@ -68,9 +68,14 @@ function calulator(values){
     
      console.log(cal)
     
+<<<<<<< HEAD
     
  
     secondValue = DisplayTop.textContent
+=======
+    numberValues = numberValues + values + ""  
+    secondValue = (DisplayTop.textContent)
+>>>>>>> parent of 1cb3e76 (Calculator add, subtract,  multiply  and divide)
     test2 = parseInt(secondValue)
     cal.value2[test2]
   
@@ -101,7 +106,29 @@ function calulator(values){
 >>>>>>> parent of 351cf81 (bug - operators and button event need separation)
     numberValues = " "  
        
+<<<<<<< HEAD
         
+=======
+            console.log(add(cal.value1,cal.value2))
+            if(add(cal.value1,cal.value2) > 1){
+                DisplayTop.textContent = `${add(cal.value1,cal.value2)} + `
+            }
+    
+    } else if (values === "-" ) {
+        DisplayTop.textContent = `${toint} - `
+        DisplayBottom.textContent = "0"
+        numberValues = " "  
+    } else if (values === "*"){
+        DisplayTop.textContent = `${toint} * `
+        DisplayBottom.textContent = "0"
+        numberValues = " "  
+    } else if(values === "/"){
+        DisplayTop.textContent = `${toint} / `
+        DisplayBottom.textContent = "0"
+        numberValues = " "  
+    }
+       
+>>>>>>> parent of 1cb3e76 (Calculator add, subtract,  multiply  and divide)
    
 }
 function operate(value1, value2, operates){
@@ -115,10 +142,8 @@ function add(value1,value2){
     return value1+value2
 }
 
-function subtract(value1,value2){
-    return value2-value1
-}
 
+<<<<<<< HEAD
 function multiply(value1,value2){
     return value2 * value1
 }
@@ -135,3 +160,5 @@ function clear(values){
     } 
     return 0
 }
+=======
+>>>>>>> parent of 1cb3e76 (Calculator add, subtract,  multiply  and divide)
