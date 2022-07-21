@@ -88,11 +88,17 @@ function calulator(values){
         cal.value1[0]
         cal.value2[0]
     }
+<<<<<<< HEAD
     
     
 
    
     
+
+   if(values === "+" ){
+    DisplayTop.textContent = `${toint} + `
+    DisplayBottom.textContent = "0"
+>>>>>>> parent of 351cf81 (bug - operators and button event need separation)
     numberValues = " "  
        
         
