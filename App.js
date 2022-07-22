@@ -10,10 +10,11 @@ const operates = document.querySelectorAll(".operates-btns")
 
 //global variables
 const cal = {
-    firstValues: 0,
-    secondValue: 0,
+    firstValues: null,
+    secondValue: null,
     results: null,
-    operator: null
+    operator: null,
+    lastOperator: null
 }
 
 
@@ -27,8 +28,8 @@ for(let i = 0; i < buttons.length;i++){
       conVal = DisplayBottom.textContent += values + ""
         
        cal.firstValues = parseInt(conVal)
-       operate()
-
+        operate()
+        
     })
 
 
@@ -36,24 +37,47 @@ for(let i = 0; i < buttons.length;i++){
 
  operates.forEach(btns => {
         btns.addEventListener("click",function(e){
+            //this will store the last value before operator object chnage
+            cal.lastOperator = cal.operator
+
             opes = e.currentTarget.value
             clear(opes)
+            
+            cal.operator = opes
+           
+            cal.secondValue = parseInt(DisplayTop.textContent)
+            if(opes === "+"){
+                DisplayTop.textContent = `${cal.firstValues} ${opes}`
+                DisplayBottom.textContent = ""
+                add()
+                
+            } else if(opes === "-"){
+                DisplayTop.textContent = `${cal.firstValues} ${opes}`
+                DisplayBottom.textContent = ""
+              
+            }
+
+            
            
 console.log(cal) 
         })
  });
 
 
-
+console.log(cal)
 
 function operate(){
-     DisplayTop.textContent = cal.firstValues
+    
+    
  
     
 }
 
-function add(value1,value2){
-    return value1+value2
+function add(){
+    if(cal.firstValues >= 0 || cal.firstValues <= 0  && cal.firstValues  >= 0  || cal.secondValue <= 0 &&  cal.operator === "+"){
+      DisplayTop.textContent =(cal.firstValues + cal.secondValue)
+    }
+
 }
 
 
@@ -68,10 +92,13 @@ function divide(value1,value2){
 function clear(values){
     
     if(values === "clear" ){
-        cal.firstValues = 0
-        cal.secondValue = 0,
-        cal.results = null,
+        cal.firstValues = null
+        cal.secondValue = null
+        cal.results = null
         cal.operator = null
+        cal.lastOperator = null
+        DisplayTop.textContent = "0"
+        DisplayBottom.textContent =""
     } 
     return 0
 }
