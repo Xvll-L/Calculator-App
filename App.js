@@ -28,7 +28,7 @@ for(let i = 0; i < buttons.length;i++){
       conVal = DisplayBottom.textContent += values + ""
         
        cal.firstValues = parseInt(conVal)
-        operate()
+       
         
     })
 
@@ -42,11 +42,12 @@ for(let i = 0; i < buttons.length;i++){
 
             opes = e.currentTarget.value
             clear(opes)
-            
+             operate()
             cal.operator = opes
            
-            cal.secondValue = parseInt(DisplayTop.textContent)
+            cal.secondValue = cal.results
             if(opes === "+"){
+                
                 DisplayTop.textContent = `${cal.firstValues} ${opes}`
                 DisplayBottom.textContent = ""
                 add()
@@ -54,6 +55,7 @@ for(let i = 0; i < buttons.length;i++){
             } else if(opes === "-"){
                 DisplayTop.textContent = `${cal.firstValues} ${opes}`
                 DisplayBottom.textContent = ""
+                subtract()
               
             }
 
@@ -67,17 +69,39 @@ console.log(cal)
 console.log(cal)
 
 function operate(){
-    
-    
- 
+    if(cal.lastOperator != null){
+
+        console.log("true")
+        if(cal.firstValues >= 0 || cal.firstValues <= 0  && cal.secondValue  >= 0  || cal.secondValue <= 0 &&  cal.lastOperator === "+" ){
+            cal.results =(cal.firstValues + cal.secondValue)
+        
+        
+        } else if (cal.firstValues >= 0 || cal.firstValues <= 0  && cal.secondValue  >= 0  || cal.secondValue <= 0 &&  cal.lastOperator === "-"){
+        
+            cal.results =(cal.secondValue - cal.firstValues)
+        
+        }
+ }
     
 }
 
 function add(){
-    if(cal.firstValues >= 0 || cal.firstValues <= 0  && cal.firstValues  >= 0  || cal.secondValue <= 0 &&  cal.operator === "+"){
-      DisplayTop.textContent =(cal.firstValues + cal.secondValue)
-    }
+    if(cal.firstValues >= 0 || cal.firstValues <= 0  && cal.secondValue  >= 0  || cal.secondValue <= 0 &&  cal.operator === "+"){
+      cal.results =  cal.firstValues + cal.secondValue
+      
 
+      
+    }
+    
+}
+
+function subtract(){
+    if(cal.firstValues >= 0 || cal.firstValues <= 0  && cal.secondValue  >= 0  || cal.secondValue <= 0 &&  cal.operator === "-"){
+        
+        cal.results = (cal.secondValue- cal.firstValues)
+        
+      }
+      
 }
 
 
