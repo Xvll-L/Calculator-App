@@ -7,7 +7,7 @@ const buttons = document.querySelectorAll(".buttons")
 const operates = document.querySelectorAll(".operates-btns")
 
 
-
+let currentNum = "";
 //global variables
 const cal = {
     firstValues: null,
@@ -25,9 +25,10 @@ for(let i = 0; i < buttons.length;i++){
     function(e){ 
        let  values =  e.currentTarget.value
        
-      conVal = DisplayBottom.textContent += values + ""
+      currentNum = currentNum + values + ""
+      console.log(currentNum)
         
-       cal.firstValues = parseInt(conVal)
+    
        
         
     })
@@ -37,6 +38,7 @@ for(let i = 0; i < buttons.length;i++){
 
  operates.forEach(btns => {
         btns.addEventListener("click",function(e){
+            
             //this will store the last value before operator object chnage
             cal.lastOperator = cal.operator
 
@@ -46,22 +48,8 @@ for(let i = 0; i < buttons.length;i++){
             cal.operator = opes
            
             cal.secondValue = cal.results
-            if(opes === "+"){
-                
-                DisplayTop.textContent = `${cal.firstValues} ${opes}`
-                DisplayBottom.textContent = ""
-                add()
-                
-            } else if(opes === "-"){
-                DisplayTop.textContent = `${cal.firstValues} ${opes}`
-                DisplayBottom.textContent = ""
-                subtract()
-              
-            }
+          
 
-            
-           
-console.log(cal) 
         })
  });
 
@@ -69,49 +57,11 @@ console.log(cal)
 console.log(cal)
 
 function operate(){
-    if(cal.lastOperator != null){
-
-        console.log("true")
-        if(cal.firstValues >= 0 || cal.firstValues <= 0  && cal.secondValue  >= 0  || cal.secondValue <= 0 &&  cal.lastOperator === "+" ){
-            cal.results =(cal.firstValues + cal.secondValue)
-        
-        
-        } else if (cal.firstValues >= 0 || cal.firstValues <= 0  && cal.secondValue  >= 0  || cal.secondValue <= 0 &&  cal.lastOperator === "-"){
-        
-            cal.results =(cal.secondValue - cal.firstValues)
-        
-        }
- }
+    
+  if ()
     
 }
 
-function add(){
-    if(cal.firstValues >= 0 || cal.firstValues <= 0  && cal.secondValue  >= 0  || cal.secondValue <= 0 &&  cal.operator === "+"){
-      cal.results =  cal.firstValues + cal.secondValue
-      
-
-      
-    }
-    
-}
-
-function subtract(){
-    if(cal.firstValues >= 0 || cal.firstValues <= 0  && cal.secondValue  >= 0  || cal.secondValue <= 0 &&  cal.operator === "-"){
-        
-        cal.results = (cal.secondValue- cal.firstValues)
-        
-      }
-      
-}
-
-
-function multiply(value1,value2){
-    return value2 * value1
-}
-
-function divide(value1,value2){
-    return value2 / value1
-}
 
 function clear(values){
     
@@ -125,4 +75,9 @@ function clear(values){
         DisplayBottom.textContent =""
     } 
     return 0
+}
+
+function display(){
+    DisplayTop.textContent = cal.results
+    console.log(cal.results) 
 }
