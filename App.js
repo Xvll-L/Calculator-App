@@ -1,4 +1,5 @@
-// what will be displayed to the user
+// what will be displayed to the user 
+
 const DisplayTop = document.querySelector(".topValue-display")
 const DisplayBottom = document.querySelector(".bottomValue-display")
 
@@ -23,13 +24,15 @@ for(let i = 0; i < buttons.length;i++){
 
     buttons[i].addEventListener("click", 
     function(e){ 
+        
        let  values =  e.currentTarget.value
        
-      currentNum = currentNum + values + ""
-      console.log(currentNum)
-        
-    
-       
+        currentNum = currentNum = currentNum + values + ""
+        let numbers = Number(currentNum) 
+        cal.firstValues = numbers
+         console.log(cal)
+         
+       display()
         
     })
 
@@ -38,30 +41,54 @@ for(let i = 0; i < buttons.length;i++){
 
  operates.forEach(btns => {
         btns.addEventListener("click",function(e){
-            
+           
             //this will store the last value before operator object chnage
             cal.lastOperator = cal.operator
-
+           
             opes = e.currentTarget.value
             clear(opes)
-             operate()
+            
             cal.operator = opes
-           
-            cal.secondValue = cal.results
-          
+            
+           console.log(cal.operator)
 
+           // cal.secondValue = cal.results
+  operate()        
+  display()
+  
         })
  });
 
 
-console.log(cal)
+const equalsBtn = document.querySelector(".btn-equal")
+
+ equalsBtn.addEventListener("click", function(){
+    
+ })
+
+
 
 function operate(){
     
-  if ()
+    if (cal.operator =! null){
+        cal.secondValue = cal.firstValues
+        
+        currentNum = 0
+        
+       
+    }
+    
+   
     
 }
 
+function Calculator(){
+
+    if (cal.operator === "+"){
+        cal.results = cal.firstValues + cal.secondValue
+    }
+
+}
 
 function clear(values){
     
@@ -78,6 +105,14 @@ function clear(values){
 }
 
 function display(){
-    DisplayTop.textContent = cal.results
+    if (cal.results != null){
+        DisplayTop.textContent = cal.results
+    } else{
+        DisplayTop.textContent = cal.secondValue
+    }
+    
+
+    DisplayBottom.textContent = cal.firstValues
     console.log(cal.results) 
 }
+
