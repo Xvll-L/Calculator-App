@@ -55,6 +55,7 @@ for(let i = 0; i < buttons.length;i++){
            // cal.secondValue = cal.results
   operate()        
   display()
+  Calculator()
   
         })
  });
@@ -63,20 +64,26 @@ for(let i = 0; i < buttons.length;i++){
 const equalsBtn = document.querySelector(".btn-equal")
 
  equalsBtn.addEventListener("click", function(){
-    
+    if (cal.results === null){
+        console.log( "true")  } else {
+            DisplayTop.textContent = cal.results
+        }
+
  })
 
 
 
 function operate(){
     
-    if (cal.operator =! null){
-        cal.secondValue = cal.firstValues
+    if(cal.operator === "+" || cal.operator === "-" || cal.operator === "/" || cal.operator === "*") {
+
+         cal.secondValue = cal.firstValues
         
         currentNum = 0
-        
-       
     }
+       
+
+ 
     
    
     
@@ -84,9 +91,20 @@ function operate(){
 
 function Calculator(){
 
+    if (cal.lastOperator != null){
+        cal.secondValue = cal.results
+    }
+    
     if (cal.operator === "+"){
         cal.results = cal.firstValues + cal.secondValue
+    } else if (cal.operator === "-"){
+        cal.results = cal.firstValues - cal.secondValue
+    } else if (cal.operator === "/"){
+        cal.results = cal.firstValues / cal.secondValue
+    } else if (cal.operator === "*"){
+        cal.results = cal.firstValues * cal.secondValue
     }
+
 
 }
 
@@ -100,19 +118,31 @@ function clear(values){
         cal.lastOperator = null
         DisplayTop.textContent = "0"
         DisplayBottom.textContent =""
+        currentNum = 0
     } 
-    return 0
+   
 }
 
 function display(){
-    if (cal.results != null){
-        DisplayTop.textContent = cal.results
-    } else{
-        DisplayTop.textContent = cal.secondValue
-    }
+   
+        
+
+
+     
     
 
-    DisplayBottom.textContent = cal.firstValues
+    DisplayBottom.textContent = `${cal.firstValues} `
     console.log(cal.results) 
+
+    
+        DisplayTop.textContent = cal.results
+        
+
+     
+        DisplayTop.textContent = `${cal.secondValue} ${cal.operator}`
+    
+
+       
+     
 }
 
