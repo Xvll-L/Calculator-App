@@ -33,15 +33,20 @@ for(let i = 0; i < buttons.length;i++){
         cal.numbers = numbers
         console.log(cal)
         if(cal.operator === "+" || cal.operator === "-" || cal.operator === "/" || cal.operator === "*") {
-
-        
-            cal.secondValue = cal.numbers
+    
+            if (cal.lastOperator != null ){
+                cal.firstValues = cal.results
+            }
             
-       } else {
-        cal.firstValues = cal.numbers
-       }
-       display()
-       Calculator()
+        cal.secondValue = cal.numbers
+        
+        } else {
+            cal.firstValues = cal.numbers
+        }
+       
+    Calculator()
+    display()
+      
     })
 
 
@@ -76,6 +81,8 @@ const equalsBtn = document.querySelector(".btn-equal")
         console.log( "true")  } else {
             DisplayTop.textContent = cal.results
         DisplayBottom.textContent= ""
+       
+        
         }
 
  })
@@ -83,9 +90,9 @@ const equalsBtn = document.querySelector(".btn-equal")
 
 // if the user press one of the operator. The current set of number will be stored in the secont value
 function operate(){
-    
+
   currentNum = 0
-       
+ 
 
  
     
@@ -103,9 +110,6 @@ function Calculator(){
    
         
        
-        if (cal.lastOperator != null || cal.operator === "clear" || cal.lastOperator === "clear"){
-            cal.firstValues = cal.results
-        }
         
         if (cal.operator === "+"){
             cal.results = cal.firstValues + cal.secondValue
@@ -115,6 +119,8 @@ function Calculator(){
             cal.results = cal.firstValues / cal.secondValue
         } else if (cal.operator === "*"){
             cal.results = cal.firstValues * cal.secondValue
+        } else {
+            return
         }
     }
 
