@@ -11,6 +11,7 @@ const operates = document.querySelectorAll(".operates-btns")
 let currentNum = "";
 //global variables
 const cal = {
+    numbers : null,
     firstValues: null,
     secondValue: null,
     results: null,
@@ -29,11 +30,18 @@ for(let i = 0; i < buttons.length;i++){
        
         currentNum = currentNum = currentNum + values + ""
         let numbers = Number(currentNum) 
-        cal.firstValues = numbers
-         console.log(cal)
-         
-       display()
+        cal.numbers = numbers
+        console.log(cal)
+        if(cal.operator === "+" || cal.operator === "-" || cal.operator === "/" || cal.operator === "*") {
+
         
+            cal.secondValue = cal.numbers
+            
+       } else {
+        cal.firstValues = cal.numbers
+       }
+       display()
+       Calculator()
     })
 
 
@@ -55,62 +63,68 @@ for(let i = 0; i < buttons.length;i++){
            // cal.secondValue = cal.results
   operate()        
   display()
-  Calculator()
+  
   
         })
  });
 
-
+// event to show results the = button is clicked
 const equalsBtn = document.querySelector(".btn-equal")
 
  equalsBtn.addEventListener("click", function(){
     if (cal.results === null){
         console.log( "true")  } else {
             DisplayTop.textContent = cal.results
+        DisplayBottom.textContent= ""
         }
 
  })
 
 
-
+// if the user press one of the operator. The current set of number will be stored in the secont value
 function operate(){
     
-    if(cal.operator === "+" || cal.operator === "-" || cal.operator === "/" || cal.operator === "*") {
-
-         cal.secondValue = cal.firstValues
-        
-        currentNum = 0
-    }
+  currentNum = 0
        
 
  
     
-   
+    Calculator()
     
 }
-
+// if the past operator has value. store the resluts in secont value
 function Calculator(){
 
-    if (cal.lastOperator != null){
-        cal.secondValue = cal.results
-    }
-    
-    if (cal.operator === "+"){
-        cal.results = cal.firstValues + cal.secondValue
-    } else if (cal.operator === "-"){
-        cal.results = cal.firstValues - cal.secondValue
-    } else if (cal.operator === "/"){
-        cal.results = cal.firstValues / cal.secondValue
-    } else if (cal.operator === "*"){
-        cal.results = cal.firstValues * cal.secondValue
+
+
+
+    if( cal.secondValue != null){
+
+   
+        
+       
+        if (cal.lastOperator != null || cal.operator === "clear" || cal.lastOperator === "clear"){
+            cal.firstValues = cal.results
+        }
+        
+        if (cal.operator === "+"){
+            cal.results = cal.firstValues + cal.secondValue
+        } else if (cal.operator === "-"){
+            cal.results = cal.firstValues - cal.secondValue
+        } else if (cal.operator === "/"){
+            cal.results = cal.firstValues / cal.secondValue
+        } else if (cal.operator === "*"){
+            cal.results = cal.firstValues * cal.secondValue
+        }
     }
 
 
 }
-
+// clearl all resluts
 function clear(values){
     
     if(values === "clear" ){
+        cal.numbers = null
         cal.firstValues = null
         cal.secondValue = null
         cal.results = null
@@ -122,7 +136,7 @@ function clear(values){
     } 
    
 }
-
+// this will display the results
 function display(){
    
         
