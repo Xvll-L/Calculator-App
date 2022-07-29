@@ -8,8 +8,11 @@ const buttons = document.querySelectorAll(".buttons")
 const operates = document.querySelectorAll(".operates-btns")
 
 
-let currentNum = "";
+
+
 //global variables
+let currentNum = "";
+
 const cal = {
     numbers : null,
     firstValues: null,
@@ -32,19 +35,9 @@ for(let i = 0; i < buttons.length;i++){
         let numbers = Number(currentNum) 
         cal.numbers = numbers
         console.log(cal)
-        if(cal.operator === "+" || cal.operator === "-" || cal.operator === "/" || cal.operator === "*") {
-    
-            if (cal.lastOperator != null ){
-                cal.firstValues = cal.results
-            }
-            
-        cal.secondValue = cal.numbers
-        
-        } else {
-            cal.firstValues = cal.numbers
-        }
        
-    Calculator()
+       
+    
     display()
       
     })
@@ -79,7 +72,8 @@ const equalsBtn = document.querySelector(".btn-equal")
  equalsBtn.addEventListener("click", function(){
     if (cal.results === null){
         console.log( "true")  } else {
-            DisplayTop.textContent = cal.results
+
+        DisplayTop.textContent = cal.results
         DisplayBottom.textContent= ""
        
         
@@ -90,35 +84,60 @@ const equalsBtn = document.querySelector(".btn-equal")
 
 // if the user press one of the operator. The current set of number will be stored in the secont value
 function operate(){
+ currentNum = 0
+  if(cal.operator === "+" || cal.operator === "-" || cal.operator === "/" || cal.operator === "*") {
 
-  currentNum = 0
- 
+    
+        
+        if (cal.lastOperator != null ){
 
- 
+            cal.firstValues = cal.results
+        }
+    
+    cal.secondValue = cal.numbers
+
+    } else {
+        cal.firstValues = cal.numbers
+    }
     
     Calculator()
+
     
 }
 // if the past operator has value. store the resluts in secont value
 function Calculator(){
 
-
-
-
+   
+   
     if( cal.secondValue != null){
 
-   
+        
         
        
         
         if (cal.operator === "+"){
             cal.results = cal.firstValues + cal.secondValue
+            cal.secondValue = cal.numbers
+            cal.numbers = null
+            
         } else if (cal.operator === "-"){
             cal.results = cal.firstValues - cal.secondValue
+            cal.secondValue = cal.numbers
+            cal.numbers = null
+
+            
         } else if (cal.operator === "/"){
+
             cal.results = cal.firstValues / cal.secondValue
+            cal.secondValue = cal.numbers
+            cal.numbers = null
+            
         } else if (cal.operator === "*"){
             cal.results = cal.firstValues * cal.secondValue
+             cal.secondValue = cal.numbers
+            cal.numbers = null
+
+           
         } else {
             return
         }
@@ -126,6 +145,8 @@ function Calculator(){
 
 
 }
+
+
 // clearl all resluts
 function clear(values){
     
@@ -166,3 +187,6 @@ function display(){
      
 }
 
+setInterval(function(){
+    console.log(cal)
+}, 1000)
