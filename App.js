@@ -84,7 +84,8 @@ const equalsBtn = document.querySelector(".btn-equal")
 
 // if the user press one of the operator. The current set of number will be stored in the secont value
 function operate(){
- currentNum = 0
+    currentNum = 0
+    
   if(cal.operator === "+" || cal.operator === "-" || cal.operator === "/" || cal.operator === "*") {
 
     
