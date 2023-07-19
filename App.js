@@ -108,7 +108,6 @@ function operate(){
 function Calculator(){
 
    
-   
     if( cal.secondValue != null){
 
         
