@@ -112,37 +112,36 @@ function Calculator(){
     if( cal.secondValue != null){
 
         
-        
+        switch(cal.operator){
        
-        
-        if (cal.operator === "+"){
-            cal.results = cal.firstValues + cal.secondValue
-            cal.secondValue = cal.numbers
-            cal.numbers = null
+            case "+":
+                cal.results = cal.firstValues + cal.secondValue
+                cal.secondValue = cal.numbers
+                cal.numbers = null
+            break;
+            case "-":
+                cal.results = cal.firstValues - cal.secondValue
+                cal.secondValue = cal.numbers
+                cal.numbers = null
+            break;
             
-        } else if (cal.operator === "-"){
-            cal.results = cal.firstValues - cal.secondValue
-            cal.secondValue = cal.numbers
-            cal.numbers = null
-
-            
-        } else if (cal.operator === "/"){
-
+            case "/":
             cal.results = cal.firstValues / cal.secondValue
             cal.secondValue = cal.numbers
             cal.numbers = null
-            
-        } else if (cal.operator === "*"){
-            cal.results = cal.firstValues * cal.secondValue
-             cal.secondValue = cal.numbers
-            cal.numbers = null
+            break;
 
-           
-        } else {
-            return
-        }
+            case "*":
+                cal.results = cal.firstValues * cal.secondValue
+                cal.secondValue = cal.numbers
+                cal.numbers = null
+            break;
+
+            default:
+                cal.results = cal.numbers;
+        
+     }
     }
-
 
 }
 
@@ -165,30 +164,14 @@ function clear(values){
 }
 // this will display the results
 function display(){
-   
-        
-
-
-     
-    
-
     DisplayBottom.textContent = `${cal.firstValues} `
     console.log(cal.results) 
-
-    
-        DisplayTop.textContent = cal.results
-        
-
-     
+        DisplayTop.textContent = cal.results  
         DisplayTop.textContent = `${cal.secondValue} ${cal.operator}`
-    
-
-       
-     
 }
 
 setInterval(function(){
     console.log(cal)
 }, 1000)
 
-// test new back
+// test new bac
